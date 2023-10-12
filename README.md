@@ -15,7 +15,10 @@
 * Press "Load unpacked", then select the folder where you unzipped the extension
 
 The extension is now installed! 
+
+## How to use
+
 * Press the icon to open the menu
 * Tap an item in the list to toggle the extension on/off
-* 
+
 ![screenshot](https://github.com/markknol/chrome-extension-disabler/assets/576184/3f1a03e7-939e-44cd-9552-3e3b42eb8ca6)
