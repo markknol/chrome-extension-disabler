@@ -3,6 +3,12 @@
 
 ## How to install
 
+### Chrome Web Store
+
+> soon :tm:
+
+### Manually
+
 * [Download the sources](https://github.com/markknol/chrome-extension-disabler/archive/refs/heads/main.zip)
 * Unzip the file somewhere on your device
 * Go to `chrome://extensions/`
