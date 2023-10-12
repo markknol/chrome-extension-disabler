@@ -11,5 +11,5 @@
 The extension is now installed! 
 * Press the icon to open the menu
 * Tap an item in the list to toggle the extension on/off
-
-![image](https://github.com/markknol/chrome-extension-disabler/assets/576184/c710260d-c046-42a6-8b23-66957420bda1)
+* 
+![screenshot](https://github.com/markknol/chrome-extension-disabler/assets/576184/3f1a03e7-939e-44cd-9552-3e3b42eb8ca6)
