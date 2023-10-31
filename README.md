@@ -5,7 +5,9 @@
 
 ### Chrome Web Store
 
-> soon :tm:
+Go to the Chrome webstore:
+* https://chrome.google.com/webstore/detail/chrome-extensions-disable/nfbbnffcchbacjhecbbmkeiialbaflpd
+
 
 ### Manually
 
