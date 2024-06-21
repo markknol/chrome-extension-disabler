@@ -21,15 +21,25 @@ function toggleExtension(id) {
 
 function init() {
 	// make list html
-	extensionsList.innerHTML = extensions.filter(ext => ext.mayDisable).map(ext => 
+	extensionsList.innerHTML = extensions
+		.filter(ext => ext.mayDisable && ext.name !== "Chrome Extensions Disabler")
+		.sort((a,b) => a.name.localeCompare(b.name))
+		.map(ext => 
 	`<div class="row">
 		<label>
-			<input type="checkbox" ${ext.enabled ? "checked" : ""} data-id="${ext.id}" /> ${ext.name} <span class="version">${ext.version}</span>
+			<input class="apple-switch" type="checkbox" ${ext.enabled ? "checked" : ""} data-id="${ext.id}" /> ${ext.name} <span class="version">${ext.version}</span>
 		</label>
-	</div>`).join("");
+	</div>`).join("") + `
+	<br/>
+	<a href="#" id="extLink">chrome://extensions</a>
+	`;
 	
 	// on checkbox input, toggle enabled state
 	[...document.querySelectorAll("input[type='checkbox']")].forEach(cb => 
 		cb.oninput = () => toggleExtension(cb.dataset.id)
 	);
+	
+	document.querySelector("#extLink").onclick = () => {
+		chrome.tabs.create({url: 'chrome://extensions'});
+	}
 }
