@@ -1,21 +1,63 @@
 <!doctype html>
-<html>
+<html lang="en-US">
   <head>
-    <title>Extensions</title>
+	<meta charset="utf-8"/>
+    <title>Chrome Extensions Disabler</title>
 	<style>
-		body { background: #202124; color: #e8eaed }
-		main { background: #292a2d; border-radius:8px; padding: 8px 10px; min-width:300px; }
+		:root {
+			--active-color: rgb(138,180,248);
+			--active-color-alt: #596f92;
+			--inactive-color: gray;
+			--text-color: #d8dadd;
+			--background: #202124;
+			--panel: #292a2d;
+		}
+		body { background: var(--background); color: var(--text-color); padding: 10px;margin:0 }
+		main { background: var(--panel); border-radius:8px; padding: 8px 10px; min-width:300px; }
 		div.row { padding: 4px; }
-		label { cursor: pointer; opacity: 0.9; } 
-		label:hover { opacity: 1; } 
-		
+		label { cursor: pointer;  transition-duration: 60ms;} 
+		label:hover { color:#fff } 
 		.version { color: #9aa0a6; }
-		h1 { margin:0 0 16px 0 }
+		h1 { margin:4px 0 16px 8px; font-weight: 500; cursor:default; color:#fff }
+		h1 img { height: 1.5em; margin-right:0.5em; vertical-align: bottom }
+		input.apple-switch {
+			position: relative;
+			appearance: none; outline: none;
+			width: 25px; height: 15px;
+			background-color: var(--text-color); border: 1px solid var(--inactive-color);
+			border-radius: 50px; box-shadow: inset -10px 0 0 0 var(--panel);
+			transition-duration: 120ms;
+			vertical-align:middle;
+			margin-right:0.5em
+		}
+		input.apple-switch:after {
+			content: "";
+			position: absolute;
+			top: 1px; left: 1px;
+			width: 13px; height: 13px;
+			background-color: transparent;
+			border-radius: 50%; box-shadow: 2px 4px 6px rgba(0,0,0,0.2);
+		}
+		input.apple-switch:checked {
+			background-color: var(--active-color);
+			border-color: var(--active-color-alt);
+			box-shadow: inset 10px 0 0 0 var(--active-color-alt);
+		}
+		input.apple-switch:checked:after {
+			left: 20px;
+			box-shadow: -2px 4px 3px rgba(0,0,0,0.05);
+		}
+		a {
+			color:rgb(138,180,248);
+		}
+		label { white-space:nowrap; }
 	</style>
   </head>
   <body>
-  <h1>Extensions</h1>
+  <h1><img src="icons/icon.png" alt="Extensions Disabler"/> Extensions Disabler</h1>
   <main id="extensionsList"></main>
   <script src="content_script.js"></script>
+  <template id="pinOn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14,12.41V5H15V4H8V5H9V12.41L7,14.41V15H16V14.41L14,12.41M17,14V14H17V14L17,16H12V20.5L11.5,22L11,20.5V16H6V14H6L8,12V6H7V3H16V6H15V12L17,14V14Z" fill="rgb(138,180,248)" /></svg></template>
+  <template id="pinOff"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2.79,4.46L3.5,3.75L20.25,20.5L19.54,21.21L14.33,16H12V20.5L11.5,22L11,20.5V16H6V14H6L8,12V9.66L2.79,4.46M14,12.41V5H15V4H8V5H9V7.84L8,6.84V6H7.16L7,5.84V3H16V6H15V12L17,14V14H17V14H17V15.83L16,14.84V14.41L14,12.41M9,12.41L7,14.41V15H13.34L9,10.66V12.41Z" fill="gray" /></svg></template>
   </body>
 </html>
